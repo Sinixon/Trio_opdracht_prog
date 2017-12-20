@@ -1,3 +1,5 @@
+
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -19,7 +21,7 @@ public class UserInterface implements Runnable {
 
     @Override
     public void run() {
-        frame = new JFrame("Trio opdracht");
+        frame = new JFrame("Netflix Statistix");
         frame.setPreferredSize(new Dimension(300, 200));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -31,7 +33,6 @@ public class UserInterface implements Runnable {
     }
 
     private void createComponents(Container container) {
-
 
 
         JTabbedPane tabbedPane = new JTabbedPane();
@@ -47,17 +48,26 @@ public class UserInterface implements Runnable {
         card1.add(new JButton("Button 1"));
         card1.add(new JButton("Button 2"));
         card1.add(new JButton("Button 3"));
+        BorderLayout layout2 = new BorderLayout();
+        card1.setLayout(layout2);
+        JLabel labelDown2 = new JLabel("Netflix Statistix");
+        JLabel labelDown3 = new JLabel("Informatica <eerste leerjaar> <23IVT1A1> <Joey, Rudwan, Kevin> ");
+        card1.add(labelDown2, BorderLayout.SOUTH);
+        card1.add(labelDown3, BorderLayout.SOUTH);
+
 
         JPanel card2 = new JPanel();
 
         card2.add(new JLabel("Selecteer serie"));
-        String[] petStrings = { "Bird", "Cat", "Dog", "Rabbit", "Pig" };
-        JComboBox petList = new JComboBox(petStrings);
+        String[] programmaStrings = {"Bird", "Cat", "Dog", "Rabbit", "Pig"};
+        JComboBox petList = new JComboBox(programmaStrings);
         petList.setSelectedIndex(4);
 
+
+
         TextArea text = new TextArea("Hier komen de gemiddeldes");
-        text.setSize(50,50);
-        ImageIcon image = new ImageIcon("betflix.png");
+        text.setSize(50, 50);
+        ImageIcon image = new ImageIcon("src/betflix.png");
         JLabel label = new JLabel(image);
         card2.add(label, BorderLayout.SOUTH);
 
@@ -74,14 +84,12 @@ public class UserInterface implements Runnable {
 
         JLabel labelTop = new JLabel("Dit moet boven aan staan");
         labelTop.setMinimumSize(new Dimension(100, 100));
-        labelTop.setPreferredSize(new Dimension(300,300));
-       labelTop.setFont(new Font("Serif", Font.BOLD, 150));
+        labelTop.setPreferredSize(new Dimension(300, 300));
+        labelTop.setFont(new Font("Serif", Font.BOLD, 150));
         labelTop.setMaximumSize(new Dimension(500, 500));
         JLabel labelDown = new JLabel("Dit moet onderaanstaan");
         card3.add(labelTop, BorderLayout.NORTH);
         card3.add(labelDown, BorderLayout.SOUTH);
-
-
 
 
         tabbedPane.addTab(home, card1);
@@ -90,10 +98,8 @@ public class UserInterface implements Runnable {
 
         container.add(tabbedPane);
 
-        
 
     }
-
 
 
     public JFrame getFrame() {
